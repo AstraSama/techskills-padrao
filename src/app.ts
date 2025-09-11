@@ -3,6 +3,7 @@ import { routes } from "./routes/routes";
 import cors from "cors";
 import { log } from "./middleware/log.middleware";
 import { errorHandling } from "./middleware/error-handling.middleware";
+import { database } from './database/database';
 
 const app: Express = express();
 
@@ -15,6 +16,11 @@ app.use(log);
 
 // Configurações das rotas
 app.use(routes);
+
+
+(async () => {
+    console.log(await database.query('select now() as data_atual', []));
+})();
 
 // Tratativa de Erros
 app.use(errorHandling);
