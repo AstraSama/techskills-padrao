@@ -4,7 +4,7 @@ class AppError extends Error {
         public code: string = 'APP_ERROR',
         public status: number = 400,
         public details?: Record<string, unknown>,
-        options?: {cause?: Error}
+        public options?: {cause?: Error}
     ) {
         super(msg);
         this.name = 'AppError';
