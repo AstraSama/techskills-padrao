@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 
 class ExampleController {
     async example(req: Request, res: Response) {
+        console.log("cid", req.headers.cid);
         return res.send("Hello Typescript!");
     }
 
